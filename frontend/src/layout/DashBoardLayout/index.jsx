@@ -75,8 +75,9 @@ export default function DashBoardLayout({children}){
                                 {authState.all_profiles_fetched && authState.all_users.map((profile)=>{
                                     return(
                                         <div key={profile._id} className={styles.extraContainer_profile}>
-                                          
-                                            <p>{profile.userId.name}</p>
+                                          <p>{profile.userId ? profile.userId.name : "Unknown User"}</p>
+
+                                            {/* <p>{profile.userId.name}</p> */}
                                             
                                         </div>
                                     )
