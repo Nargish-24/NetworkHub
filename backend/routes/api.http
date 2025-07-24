@@ -4,10 +4,10 @@ POST http://localhost:9080/register HTTP/1.1
 Content-Type: application/json
 
 {
-  "username" :"NargishNissa123",
-   "name": "Nargish Nissa",
-  "email":"nargishbano1444@gmail.com",
-  "password":"nargish123456789"
+  "username" :"Aman123",
+   "name": "Aman",
+  "email":"Aman1444@gmail.com",
+  "password":"12345"
 }
 
 ###
@@ -16,8 +16,8 @@ POST http://localhost:9080/login HTTP/1.1
 Content-Type: application/json
 
 {
-  "email":"nargishbano1444@gmail.com",
-  "password":"nargish123456789"
+  "email":"Aman1444@gmail.com",
+  "password":"12345"
 }
 
 ###
@@ -38,7 +38,7 @@ GET http://localhost:9080/get_user_and_profile HTTP/1.1
 Content-Type: application/json
 
  {
-  "token": "f89eb0273704aea3062e125a497f658fd5d72d7978a108b7645c5d97c66f436a"
+  "token": "ba4df1c583d6662b4fe3eb241f940b5b49551ff0d235665ac72beb9e02fb58b7"
     
   }
 
@@ -48,8 +48,8 @@ POST http://localhost:9080/update_profile_data HTTP/1.1
 Content-Type: application/json
 
 {
-   "token": "f89eb0273704aea3062e125a497f658fd5d72d7978a108b7645c5d97c66f436a",
-  "bio": "Hey I am Nargish ",
+   "token": "ba4df1c583d6662b4fe3eb241f940b5b49551ff0d235665ac72beb9e02fb58b7",
+  "bio": "Hey I am Aman ",
   "currentPost": " Software Engineer",
   "pastWork": [
     {
