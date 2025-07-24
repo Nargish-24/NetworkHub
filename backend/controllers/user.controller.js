@@ -212,12 +212,15 @@ export const updateProfileData = async (req, res) => {
 
 export const getAllUsersProfile = async (req, res) => {
     try {
-        const profiles = await Profile.find().populate('userId', 'name email username profilePicture');
+        // Only return profiles that have a valid userId
+        const profiles = await Profile.find({ userId: { $ne: null } })
+            .populate('userId', 'name email username profilePicture');
         return res.json({profiles});
     } catch (error) {
         return res.status(500).json({ message: error.message });
     }
 }
+
 
 export const downloadProfile = async (req, res) => {
    const user_id = req.query.id;
