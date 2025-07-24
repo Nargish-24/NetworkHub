@@ -31,20 +31,27 @@ export default function DiscoverPage() {
             <h1>Discover</h1>
             <div className={styles.allUserProfile}>
 
-              {authState.all_profiles_fetched && authState.all_users.map((user)=>{
-                return(
-                     <div onClick={()=>{
-                       router.push(`/view_profile/${user.userId.username}`)
-                     }} key ={user._id} className={styles.userCard}>
-                        <img className={styles.userCard_image} src={`${BASE_URL}/${user.userId.profilePicture}`} alt="Profile" />
-                       <div>
-                       <h1>{user.userId.name}</h1>
-                       <p>@{user.userId.username}</p>
-                       </div>
-                     </div>
-                )
-              })}
-       
+           {authState.all_profiles_fetched && authState.all_users
+  .filter(user => user?.userId) // Only keep users with valid userId
+  .map(user => (
+    <div 
+      onClick={() => router.push(`/view_profile/${user.userId.username}`)} 
+      key={user._id} 
+      className={styles.userCard}
+    >
+        <img 
+          className={styles.userCard_image} 
+          src={user.userId?.profilePicture ? `${BASE_URL}/${user.userId.profilePicture}` : "/default.jpg"} 
+          alt="Profile" 
+        />
+        <div>
+          <h1>{user.userId?.name || "Unknown User"}</h1>
+          <p>@{user.userId?.username || "unknown"}</p>
+        </div>
+    </div>
+))}
+
+    
 
 
              </div>
